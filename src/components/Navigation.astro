@@ -1,0 +1,73 @@
+---
+
+---
+
+<!-- 
+  Navigation component.
+  Styles are controlled by the parent layout (Desktop vs Mobile) in Header.astro 
+  or generic global styles.
+-->
+<div class="nav-links">
+  <a href="/">Inicio</a>
+  <a href="/blog/">Noticias</a>
+  <a href="/biografia/">Biografía</a>
+  <a href="/contacto/">Contacto</a>
+</div>
+
+<style>
+  /* Base styles (Desktop default as per previous design system) */
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    color: var(--color-text-heading);
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-primary);
+  }
+
+  /* Desktop Hover Effect (Underline) */
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile Context Styles (Applied when inside .mobile-nav) */
+  :global(.mobile-nav) .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  :global(.mobile-nav) .nav-links a {
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  :global(.mobile-nav) .nav-links a::after {
+    background-color: var(--color-accent);
+  }
+
+  :global(.mobile-nav) .nav-links a:hover {
+    color: var(--color-accent);
+  }
+</style>

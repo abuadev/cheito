@@ -1,0 +1,320 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Oswald:wght@300;400;500;700&display=swap');
+
+:root {
+  /* Colors */
+  --color-primary: #006400;
+  /* Dark Green */
+  --color-primary-light: #228B22;
+  /* Forest Green */
+  --color-secondary: #1a1a1a;
+  /* Almost Black */
+  --color-accent: #eab308;
+  /* Gold/Yellow for small accents if needed */
+
+  --color-bg: #ffffff;
+  --color-bg-alt: #f0fdf4;
+  /* Very light green tint for alternate sections */
+  --color-bg-dark: #1a1a1a;
+
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-text-heading: #1a1a1a;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #e5e7eb;
+
+  /* Typography */
+  --font-sans: 'Open Sans', system-ui, sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+}
+
+html {
+  background-color: var(--color-bg);
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-heading);
+  margin-top: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+  /* Common in sports design */
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-light);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility classes */
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  html {
+    font-size: 15px;
+    /* Slightly smaller text on mobile */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  border-radius: 0;
+  /* Sharper corners for sports look */
+  text-transform: uppercase;
+  font-size: 1rem;
+  border: 2px solid var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+/* Section styling */
+section {
+  padding: 4rem 0;
+}
+
+.bg-green {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.bg-green h1,
+.bg-green h2,
+.bg-green h3,
+.bg-green p,
+.bg-green a {
+  color: white;
+}
+
+.bg-green a:hover {
+  color: var(--color-accent);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Animations                                   */
+/* -------------------------------------------------------------------------- */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Football/Sports Theme                            */
+/* -------------------------------------------------------------------------- */
+
+/* Dynamic diagonal clip-path for images */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.clip-diagonal-reverse {
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+}
+
+/* Dynamic hover effect for buttons */
+.btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: .5s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 100%;
+  transition: 0s;
+}
+
+/* Curved Section Transitions */
+.curve-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.curve-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+}
+
+.curve-bottom .shape-fill {
+  fill: #FFFFFF;
+}
+
+/* Editorial Hero Styles */
+.hero-editorial {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  background-color: var(--color-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-editorial::before {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background-color: var(--color-primary);
+  opacity: 0.05;
+  border-radius: 50%;
+  top: -50%;
+  left: -10%;
+  z-index: 0;
+}
+
+.hero-image-container {
+  position: relative;
+  z-index: 1;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 768px) {
+  .hero-editorial {
+    min-height: 500px;
+  }
+
+  .hero-image-container {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+.hero-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}

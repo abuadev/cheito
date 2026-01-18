@@ -1,0 +1,119 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Contacto";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <div class="contact-content">
+      <p>
+        Si tienes alguna consulta o propuesta, no dudes en escribirme a través
+        del siguiente formulario:
+      </p>
+
+      <h3>Formulario de Contacto</h3>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .contact-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  h3 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left; /* Keep form internal alignment left mostly */
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--color-text-heading);
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0; /* Match design system */
+    font-family: inherit;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.1);
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: var(--color-primary);
+    color: white;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background-color: var(--color-primary-dark);
+  }
+
+  @media (min-width: 600px) {
+    button {
+      width: auto;
+      min-width: 200px;
+    }
+  }
+</style>

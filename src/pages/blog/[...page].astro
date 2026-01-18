@@ -1,0 +1,187 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import NewsCard from "../../components/NewsCard.astro";
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const allPosts = await getCollection("posts");
+  // Sort by date desc
+  allPosts.sort(
+    (a: any, b: any) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
+  );
+
+  return paginate(allPosts, { pageSize: 5 });
+}
+
+const { page } = Astro.props;
+const allPosts = await getCollection("posts");
+
+// Extract Categories (Tags)
+const tags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
+
+// Extract Archive (Month Year)
+const archive = [
+  ...new Set(
+    allPosts.map((post: any) => {
+      const date = new Date(post.data.pubDate);
+      return date.toLocaleDateString("es-ES", {
+        month: "long",
+        year: "numeric",
+      });
+    }),
+  ),
+];
+
+const pageTitle = "Noticias";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <div class="blog-container">
+      <div class="main-content">
+        <div class="posts-list">
+          {
+            page.data.map((post: any) => (
+              <div class="blog-post-item">
+                <NewsCard post={post} />
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="pagination">
+          {
+            page.url.prev ? (
+              <a href={page.url.prev} class="btn btn-outline">
+                « Anterior
+              </a>
+            ) : null
+          }
+          <span class="page-number"
+            >Página {page.currentPage} de {page.lastPage}</span
+          >
+          {
+            page.url.next ? (
+              <a href={page.url.next} class="btn btn-outline">
+                Siguiente »
+              </a>
+            ) : null
+          }
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="widget">
+          <h3>Categorías</h3>
+          <ul>
+            {
+              tags.map((tag) => (
+                <li>
+                  <a href={`/tags/${tag}`}>{tag}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h3>Archivo</h3>
+          <ul>
+            {
+              archive.map((monthYear) => (
+                <li>
+                  <a href="#">{monthYear}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (min-width: 900px) {
+    .blog-container {
+      flex-direction: row;
+    }
+
+    .main-content {
+      flex: 3;
+    }
+
+    .sidebar {
+      flex: 1;
+      border-left: 1px solid var(--color-border);
+      padding-left: 2rem;
+    }
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .page-number {
+    font-weight: bold;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-outline:hover {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .widget {
+    margin-bottom: 2rem;
+  }
+
+  .widget h3 {
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .widget ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .widget li {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+
+  .widget a {
+    color: var(--color-text);
+  }
+
+  .widget a:hover {
+    color: var(--color-primary);
+  }
+</style>

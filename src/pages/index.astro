@@ -1,0 +1,169 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsCard from "../components/NewsCard.astro";
+
+const pageTitle = "Inicio";
+const allPosts = await getCollection("posts");
+// Sort posts by date
+allPosts.sort(
+  (a, b) =>
+    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
+);
+const recentPosts = allPosts.slice(0, 3);
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section class="hero-editorial">
+    <div class="hero-image-container animate-fade-in">
+      <img src="/cheito-diaz2-1030x685.jpg" alt="Cheito Díaz" />
+    </div>
+    <div class="curve-bottom">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          class="shape-fill"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section class="welcome-section container animate-fade-in delay-100">
+    <div class="welcome-content text-center">
+      <h2>Bienvenidos</h2>
+      <p>
+        Bienvenidos a mi web oficial, aquí encontrarás toda la información
+        acerca de mi actividad profesional y la de mis equipos, así como datos
+        sobre mi trayectoria en los distintos clubs a los que he pertenecido.
+      </p>
+      <p>Así, espero os guste y estemos en contacto permanente.</p>
+      <blockquote class="quote animate-fade-in delay-200">
+        "La Inteligencia Colectiva en fútbol es como la respiración: en ataque
+        expirar y en defensa inspirar"
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="novedades-section bg-green">
+    <!-- Top Curve -->
+    <div class="section-curve-top">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          fill="#FFFFFF"></path>
+      </svg>
+    </div>
+
+    <div
+      class="container animate-fade-in delay-300"
+      style="position: relative; z-index: 2;"
+    >
+      <h2 class="text-center">Novedades</h2>
+      <div class="news-grid">
+        {recentPosts.map((post: any) => <NewsCard post={post} />)}
+      </div>
+      <div class="view-all text-center">
+        <a href="/blog/" class="btn btn-white">Ver todas las noticias</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Reset default section padding for hero */
+  /* Reset default section padding for hero */
+  .hero-editorial {
+    padding: 0;
+  }
+
+  .section-curve-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .section-curve-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+  }
+
+  .novedades-section {
+    padding: 6rem 0 4rem; /* Extra top padding for curve */
+    position: relative;
+  }
+
+  /* Remove old hero styles */
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .welcome-section {
+    padding: 4rem 1.5rem;
+    background-color: white;
+  }
+
+  .welcome-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .quote {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--color-primary);
+    margin-top: 2rem;
+    border-left: none; /* Override default */
+    padding: 0;
+  }
+
+  .novedades-section {
+    padding: 4rem 0;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .news-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .view-all {
+    margin-top: 3rem;
+  }
+
+  .btn-white {
+    background-color: white;
+    color: var(--color-primary);
+    border-color: white;
+  }
+
+  .btn-white:hover {
+    background-color: transparent;
+    color: white;
+  }
+</style>
