@@ -25,10 +25,9 @@ const archive = [
   ...new Set(
     allPosts.map((post: any) => {
       const date = new Date(post.data.pubDate);
-      return date.toLocaleDateString("es-ES", {
-        month: "long",
-        year: "numeric",
-      });
+      const month = date.toLocaleDateString("es-ES", { month: "long" });
+      const year = date.getFullYear();
+      return `${month} ${year}`; // Force "enero 2026" format
     }),
   ),
 ];
@@ -89,11 +88,15 @@ const pageTitle = "Noticias";
           <h3>Archivo</h3>
           <ul>
             {
-              archive.map((monthYear) => (
-                <li>
-                  <a href="#">{monthYear}</a>
-                </li>
-              ))
+              archive.map((monthYear) => {
+                // monthYear format: "enero 2026"
+                const [month, year] = monthYear.split(" ");
+                return (
+                  <li>
+                    <a href={`/archivo/${year}/${month}`}>{monthYear}</a>
+                  </li>
+                );
+              })
             }
           </ul>
         </div>

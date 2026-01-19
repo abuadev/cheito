@@ -1,0 +1,112 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import NewsCard from "../../../components/NewsCard.astro";
+
+export async function getStaticPaths() {
+    const allPosts = await getCollection("posts");
+
+    const uniqueMonths = [
+        ...new Set(
+            allPosts.map((post: any) => {
+                const date = new Date(post.data.pubDate);
+                return JSON.stringify({
+                    year: date.getFullYear().toString(),
+                    month: date.toLocaleDateString("es-ES", { month: "long" }),
+                });
+            }),
+        ),
+    ].map((str) => JSON.parse(str as string));
+
+    return uniqueMonths.map(({ year, month }) => {
+        const filteredPosts = allPosts.filter((post: any) => {
+            const date = new Date(post.data.pubDate);
+            const postYear = date.getFullYear().toString();
+            const postMonth = date.toLocaleDateString("es-ES", {
+                month: "long",
+            });
+            return postYear === year && postMonth === month;
+        });
+
+        // Sort by date desc
+        filteredPosts.sort(
+            (a: any, b: any) =>
+                new Date(b.data.pubDate).valueOf() -
+                new Date(a.data.pubDate).valueOf(),
+        );
+
+        return {
+            params: { year, month },
+            props: { posts: filteredPosts },
+        };
+    });
+}
+
+const { year, month } = Astro.params;
+const { posts } = Astro.props;
+
+// Capitalize month
+const monthCapitalized = month.charAt(0).toUpperCase() + month.slice(1);
+const pageTitle = `Archivo: ${monthCapitalized} ${year}`;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="container">
+        <div class="archive-header">
+            <h1>
+                Archivo: <span class="highlight"
+                    >{monthCapitalized} {year}</span>
+            </h1>
+            <a href="/blog" class="back-link">← Volver a Noticias</a>
+        </div>
+
+        <div class="posts-list">
+            {
+                posts.map((post: any) => (
+                    <div class="blog-post-item">
+                        <NewsCard post={post} />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .archive-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .highlight {
+        color: var(--color-primary);
+    }
+
+    .back-link {
+        color: #666;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .back-link:hover {
+        color: var(--color-primary);
+        text-decoration: underline;
+    }
+
+    .posts-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+</style>
