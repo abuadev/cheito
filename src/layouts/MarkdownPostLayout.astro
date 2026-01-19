@@ -38,8 +38,8 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
         </h1>
 
         <div class="author-meta">
-          <div class="author-avatar-placeholder">
-            <span class="initials">{frontmatter.author.charAt(0)}</span>
+          <div class="author-avatar-img">
+            <img src="/cheito-author.jpg" alt="Cheito Díaz" />
           </div>
           <div class="author-info">
             <span class="by">Por</span>
@@ -156,17 +156,21 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
     width: 100%;
   }
 
-  .author-avatar-placeholder {
+  .author-avatar-img {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: white;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .author-avatar-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 !important; /* Override potential prose margins */
+    border-radius: 50%;
   }
 
   .author-info {
