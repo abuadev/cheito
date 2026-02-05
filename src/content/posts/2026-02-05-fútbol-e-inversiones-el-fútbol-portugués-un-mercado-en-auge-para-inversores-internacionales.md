@@ -19,4 +19,4 @@ image:
     retorno de inversión a medio plazo y la importancia de una gestión deportiva
     innovadora para maximizar el rendimiento económico.
 ---
-Infografía sobre el fútbol portugués como oportunidad de inversión, destacando a Portugal como puerta de entrada al fútbol europeo, el modelo de inversión basado en la captación y desarrollo de talento, el ciclo de retorno de inversión a medio plazo y la importancia de una gestión deportiva innovadora para maximizar el rendimiento económico.
+Infografía sobre el fútbol portugués como oportunidad de inversión, destacando a Portugal como puerta de entrada al fútbol europeo, el modelo de inversión basado en la captación y desarrollo de talento, el ciclo de retorno de inversión a medio plazo y la importancia de una gestión deportiva innovadora para maximizar el rendimiento económicokkk.kk
