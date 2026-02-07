@@ -15,7 +15,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString("es-ES", {
     <div class="image-container">
       {
         image ? (
-          <img src={image.url} alt={image.alt || title} />
+          <img src={image} alt={title} />
         ) : (
           <div class="placeholder-image" />
         )

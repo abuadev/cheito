@@ -30,7 +30,8 @@
 }
 
 html {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-dark);
+  /* Match footer for overscroll */
   font-family: var(--font-sans);
   color: var(--color-text);
   scroll-behavior: smooth;
@@ -43,6 +44,216 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--color-bg);
+  /* Keep main content white */
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Loading Screen                               */
+/* -------------------------------------------------------------------------- */
+
+/* Hide everything except the loader when the page is first opened in a session */
+html.is-loading body>*:not(.loading-wrapper) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s;
+  /* Hidden by default unless html has .is-loading */
+  visibility: hidden;
+  opacity: 0;
+}
+
+html.is-loading .loading-wrapper {
+  visibility: visible;
+  opacity: 1;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  perspective: 1000px;
+}
+
+/* Animations are paused by default (SSR safety / Recurrent visitors) */
+.loading-wrapper .logo-img,
+.loading-wrapper .logo-glow,
+.loading-wrapper .ball-container,
+.loading-wrapper .ball-img,
+.loading-wrapper .ball-shadow {
+  animation-play-state: paused !important;
+}
+
+/* Only run animations when is-playing class is added via Preact/JS */
+.loading-wrapper.is-playing .logo-img,
+.loading-wrapper.is-playing .logo-glow,
+.loading-wrapper.is-playing .ball-container,
+.loading-wrapper.is-playing .ball-img,
+.loading-wrapper.is-playing .ball-shadow {
+  animation-play-state: running !important;
+}
+
+/* Logo Section */
+.logo-section {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  animation: breathe 3s infinite ease-in-out;
+  filter: drop-shadow(0 0 15px rgba(34, 139, 34, 0.3));
+}
+
+.logo-glow {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(34, 139, 34, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: breathe-glow 3s infinite ease-in-out;
+}
+
+/* Ball Section */
+.ball-section {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ball-container {
+  width: 60px;
+  height: 60px;
+  animation: bounce 0.6s infinite alternate cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.ball-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: roll 2s infinite linear;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.ball-shadow {
+  width: 50px;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  filter: blur(4px);
+  animation: shadow-scale 0.6s infinite alternate cubic-bezier(0.5, 0, 0.5, 1);
+  margin-top: 5px;
+}
+
+/* Keyframes */
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2) drop-shadow(0 0 20px rgba(34, 139, 34, 0.5));
+  }
+}
+
+@keyframes breathe-glow {
+
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-60px);
+  }
+}
+
+@keyframes shadow-scale {
+  from {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  to {
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+}
+
+@keyframes roll {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-section {
+    width: 140px;
+    height: 140px;
+  }
+
+  .ball-container {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ball-section {
+    height: 80px;
+  }
+
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-40px);
+    }
+  }
 }
 
 * {
@@ -147,6 +358,10 @@ img {
 }
 
 /* Section styling */
+main {
+  flex: 1;
+}
+
 section {
   padding: 4rem 0;
 }

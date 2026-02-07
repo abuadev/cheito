@@ -13,7 +13,6 @@ export async function GET(context) {
       description: post.data.description,
       link: `/posts/${post.slug}/`,
       author: post.data.author,
-      categories: post.data.tags, // RSS tags
     })),
     customData: `<language>es-ES</language>`,
   });

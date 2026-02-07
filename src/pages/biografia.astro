@@ -4,6 +4,42 @@ const pageTitle = "Biografía";
 
 const trajectoryData = [
   {
+    season: "2025/2026",
+    club: "C.P. GRANADA 74",
+    role: "Director Deportivo",
+    icon: "manager",
+  },
+  {
+    season: "2024/25",
+    club: "BORUSIA GOJAR",
+    role: "2ª División Andaluza",
+    icon: "whistle",
+  },
+  {
+    season: "2023/24",
+    club: "PURULLENA C.F.",
+    role: "1ª División Andaluza",
+    icon: "whistle",
+  },
+  {
+    season: "2022/23",
+    club: "C.F. LA MALAHÁ",
+    role: "Cadete (Ascenso Categoría)",
+    icon: "trophy",
+  },
+  {
+    season: "2021/22",
+    club: "VEGAS DEL GENIL ATL.",
+    role: "3ª División Andaluza - Campeón (invicto)",
+    icon: "trophy",
+  },
+  {
+    season: "2020/21",
+    club: "RVO. VEGAS DEL GENIL",
+    role: "Prebenjamín (Campeones)",
+    icon: "trophy",
+  },
+  {
     season: "2019/20",
     club: "Cúllar Vega C.F.",
     role: "Entrenador Principal",
@@ -86,27 +122,36 @@ const icons: Record<string, string> = {
       <!-- Bio Section -->
       <section class="bio-section">
         <div class="text-content">
-          <h2>Cheíto Díaz</h2>
-          <p>Mi nombre es José Antonio «Cheito» Díaz.</p>
+          <h2>CHEÍTO DÍAZ</h2>
           <p>
-            Nací en Ceuta en 1971, donde viví hasta 1990, cuando me trasladé a
-            Granada para realizar la carrera de Ciencias Políticas y Sociología
-            por la Universidad de Granada.
+            Mi nombre es <strong>José Antonio</strong>
+            <strong>“Cheíto” Díaz</strong>.
           </p>
           <p>
-            Entrenando desde los 14 años, tras pasar un par de años como árbitro
-            de fútbol sala, retomé de nuevo los campos de juego para hacer
-            funciones de primer entrenador, scouting, analista, e informador.
+            Nací en <strong>Ceuta en 1971</strong>, ciudad en la que crecí hasta
+            1990, año en el que me trasladé a <strong>Granada</strong> para cursar
+            <strong>Ciencias Políticas y Sociología</strong> en la Universidad de
+            Granada.
           </p>
           <p>
-            Conocedor del mundo de la representación de jugadores, a través de
-            varias empresas y agentes, entre ellas GibraSports Consulting y
-            colaborador en varios fichajes de jugadores en la liga inglesa entre
-            otros.
+            A lo largo de mi trayectoria he adquirido un profundo conocimiento
+            del <strong>mundo de la representación de</strong>
+            <strong>jugadores</strong>, colaborando con diferentes empresas y
+            agentes, entre ellas <strong>GibraSports Consulting</strong>, y
+            participando en <strong>operaciones de</strong>
+            <strong>fichajes</strong>, incluidos movimientos en la
+            <strong>liga inglesa</strong>, entre otros mercados.
           </p>
           <p>
-            Con un Máster en Dirección Deportiva, actualmente ejerzo como
-            Director Deportivo y compaginando como Primer Entrenador.
+            Soy <strong>Máster en Dirección Deportiva</strong> y en la actualidad
+            ejerzo como
+            <strong>Director Deportivo</strong>, compaginando esta labor con la
+            de <strong>Primer</strong>
+            <strong>Entrenador</strong>, una dualidad que me permite unir <strong
+              >gestión, planificación y</strong
+            >
+            <strong>rendimiento deportivo</strong>
+            desde dentro del campo.
           </p>
         </div>
         <div class="image-content">
@@ -132,14 +177,22 @@ const icons: Record<string, string> = {
           </div>
         </div>
         <div class="text-content">
-          <h2>Mi filosofía</h2>
+          <h2>MI FILOSOFÍA</h2>
           <p>
-            Me gusta el fútbol directo-elaborado, siempre en función de la
-            estructura del rival y del momento del partido.
+            Creo en un <strong>fútbol directo–</strong><strong>elaborado</strong
+            >, siempre condicionado por la
+            <strong>estructura del rival</strong> y el <strong
+              >momento del partido</strong
+            >. No entiendo el juego como un modelo rígido, sino como un sistema
+            vivo que se adapta al contexto.
           </p>
           <p>
-            Los jugadores son los intérpretes del juego al que hay que dirigir
-            hacia esa toma de decisiones autónomas.
+            El jugador es el <strong>verdadero</strong>
+            <strong>intérprete del juego</strong>. El objetivo del entrenador
+            debe ser <strong>guiarlo hacia la</strong>
+            <strong>toma de decisiones autónomas</strong>, potenciando su
+            comprensión del juego, su inteligencia táctica y su capacidad para
+            resolver situaciones reales de partido.
           </p>
         </div>
       </section>
@@ -248,7 +301,11 @@ const icons: Record<string, string> = {
       order: 2;
     }
 
-    .text-content,
+    .text-content {
+      flex: 1.6;
+      width: 100%;
+    }
+
     .image-content {
       flex: 1;
       width: 100%;
@@ -303,6 +360,7 @@ const icons: Record<string, string> = {
     margin-bottom: 1rem;
     font-size: 1.15rem;
     color: #444;
+    text-align: justify;
   }
 
   /* Trajectory Full Width */

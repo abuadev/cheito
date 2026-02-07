@@ -19,15 +19,6 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
       <!-- Editorial Header -->
       <header class="post-header">
         <div class="meta-top">
-          {
-            frontmatter.tags && (
-              <div class="tags-wrapper">
-                {frontmatter.tags.map((tag) => (
-                  <span class="category-tag">#{tag}</span>
-                ))}
-              </div>
-            )
-          }
           <time datetime={frontmatter.pubDate.toISOString()}>
             {formattedDate}
           </time>
@@ -53,8 +44,8 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
         frontmatter.image && (
           <div class="hero-image-wrapper">
             <img
-              src={frontmatter.image.url}
-              alt={frontmatter.image.alt}
+              src={frontmatter.image}
+              alt={frontmatter.title}
               class="hero-image"
             />
           </div>
@@ -125,17 +116,8 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
     font-weight: 500;
   }
 
-  .tags-wrapper {
-    display: flex;
-    gap: 0.5rem;
-  }
-
   .category-tag {
-    color: var(--color-primary);
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    display: none;
   }
 
   .post-title {
@@ -230,6 +212,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
       serif
     ); /* Use heading font for punchy lead */
     letter-spacing: -0.02em;
+    text-align: justify;
   }
 
   /* Typography / Prose Styles */
@@ -238,6 +221,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
     line-height: 1.8;
     color: #333;
     font-family: var(--font-sans);
+    text-align: justify;
   }
 
   /* Scoped styles */

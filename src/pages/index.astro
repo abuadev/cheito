@@ -34,13 +34,31 @@ const recentPosts = allPosts.slice(0, 3);
 
   <section class="welcome-section container animate-fade-in delay-100">
     <div class="welcome-content text-center">
-      <h2>Bienvenidos</h2>
+      <h2>BIENVENIDOS</h2>
       <p>
-        Bienvenidos a mi web oficial, aquí encontrarás toda la información
-        acerca de mi actividad profesional y la de mis equipos, así como datos
-        sobre mi trayectoria en los distintos clubs a los que he pertenecido.
+        Bienvenido a mi web oficial. Este es un espacio dedicado al <strong
+          >fútbol desde una visión</strong
+        >
+        <strong>profesional</strong>, donde comparto mi trabajo como <strong
+          >entrenador y</strong
+        >
+        <strong>director deportivo</strong>, la actividad de mis equipos y mi
+        trayectoria en los diferentes clubes en los que he desarrollado mi
+        carrera.
       </p>
-      <p>Así, espero os guste y estemos en contacto permanente.</p>
+      <p>
+        Aquí encontrarás <strong>análisis,</strong>
+        <strong>reflexiones y opinión</strong>
+        <strong>futbolística</strong> en sus distintas facetas: formación, rendimiento,
+        gestión de equipos y dirección deportiva. Un lugar vivo, en constante actualización,
+        pensado para entrenadores, jugadores y amantes del fútbol.
+      </p>
+      <p>
+        Espero que este contenido te resulte útil e interesante y que podamos <strong
+          >mantener un contacto</strong
+        >
+        <strong>cercano y continuo</strong>.
+      </p>
       <blockquote class="quote animate-fade-in delay-200">
         "La Inteligencia Colectiva en fútbol es como la respiración: en ataque
         expirar y en defensa inspirar"
@@ -121,7 +139,7 @@ const recentPosts = allPosts.slice(0, 3);
   }
 
   .welcome-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -140,16 +158,21 @@ const recentPosts = allPosts.slice(0, 3);
   }
 
   .news-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
   }
 
+  .news-grid > :global(*) {
+    width: 100%;
+    flex: 1 1 300px;
+    max-width: 380px;
+  }
+
   @media (min-width: 768px) {
-    .news-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    /* Grid is no longer used, centering handled by flex-grid */
   }
 
   .view-all {

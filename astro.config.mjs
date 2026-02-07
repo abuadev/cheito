@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [preact()],
   vite: {
     server: {
-      allowedHosts: ['7b39e1f9f442.ngrok-free.app']
+      allowedHosts: ['bf27-88-28-22-48.ngrok-free.app']
     }
   }
 });
