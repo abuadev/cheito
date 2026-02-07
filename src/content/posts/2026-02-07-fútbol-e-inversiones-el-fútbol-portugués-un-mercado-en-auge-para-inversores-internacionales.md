@@ -14,7 +14,7 @@ description: >-
 
   En este artículo analizamos por qué el fútbol portugués sigue atrayendo capital internacional y cómo una gestión deportiva innovadora, basada en el análisis y la estrategia, es clave para maximizar el rendimiento deportivo y económico de los clubes.
 author: Cheito Díaz
-image: src/assets/uploads/chatgpt-image-5-feb-2026-22_07_41.png
+image: src/assets/uploads/chatgpt-image-5-feb-2026-22_08_11.png
 ---
 El fútbol portugués ha experimentado una transformación notable en la última década: desde su posicionamiento como **exportador global de talento** hasta un entorno regulatorio y económico que lo sitúa como **una de las mejores oportunidades de inversión en Europa fuera de las cinco grandes ligas.**
 
