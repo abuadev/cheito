@@ -63,6 +63,8 @@ Además de traspasos, un club bien gestionado puede generar ingresos a través d
 
 La venta centralizada de derechos audiovisuales en Portugal, aun en proceso, promete una redistribución que favorezca especialmente a los clubes medianos y más pequeños, ampliando así la capacidad de generar retornos financieros. 
 
+![](src/assets/uploads/chatgpt-image-5-feb-2026-22_08_11.png)
+
 ### **3. Casos reales y tendencias actuales**
 
 El interés inversor en Portugal no es una idea aislada: en 2025 se confirmó la compra del **90 % del FC Penafiel** por parte de un grupo empresarial internacional por unos 12 millones €, con el objetivo de profesionalizar estructuras y potenciar el desarrollo de jóvenes talentos. 
