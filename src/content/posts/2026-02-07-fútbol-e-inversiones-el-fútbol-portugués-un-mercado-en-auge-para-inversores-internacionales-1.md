@@ -6,7 +6,7 @@ description: El fútbol portugués es hoy una de las vías más eficientes de ac
   al fútbol europeo para inversores que buscan talento, estructura y
   rentabilidad.
 author: Cheito Díaz
-image: src/assets/uploads/whatsapp-image-2026-02-08-at-13.01.15.jpeg
+image: /uploads/whatsapp-image-2026-02-08-at-13.01.15.jpeg
 ---
 El fútbol portugués ha experimentado una transformación notable en la última década: desde su posicionamiento como **exportador global de talento** hasta un entorno regulatorio y económico que lo sitúa como **una de las mejores oportunidades de inversión en Europa fuera de las cinco grandes ligas.**
 
@@ -55,7 +55,7 @@ Además de traspasos, un club bien gestionado puede generar ingresos a través d
 
 La venta centralizada de derechos audiovisuales en Portugal, aun en proceso, promete una redistribución que favorezca especialmente a los clubes medianos y más pequeños, ampliando así la capacidad de generar retornos financieros. 
 
-![](src/assets/uploads/chatgpt-image-5-feb-2026-22_08_11.png)
+![](/uploads/chatgpt-image-5-feb-2026-22_08_11.png)
 
 ### **3. Casos reales y tendencias actuales**
 
