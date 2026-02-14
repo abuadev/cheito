@@ -1,8 +1,11 @@
 ---
-title: Noticia de prueba
+title: Portugal como puerta de entrada al fútbol europeo para el talento sudamericano
 pubDate: 2026-02-14
-description: Entradilla
+description: El talento sudamericano necesita estructura, estrategia y un
+  entorno adecuado para triunfar en Europa. Portugal se ha convertido en la
+  puerta de entrada más inteligente y rentable para la adaptación, valorización
+  y posterior salto a las grandes ligas europeas.
 author: Cheito Díaz
-image: https://imgs.search.brave.com/fbWPrXk_WpyPbhS6DsChfhaT2cAxgn5PvV61JgEQ9LM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAyLzAxLzk4Lzcz/LzM2MF9GXzIwMTk4/NzM4MF9ZalIza1BN/MFBTM2hGN1d2bjdJ/Qk1tVzFGV3JNd3J1/TC5qcGc
+image: src/assets/uploads/37211959_1841239672637351_203850078559928320_o-1-180x180.jpg
 ---
 Cuerpo del artículo
