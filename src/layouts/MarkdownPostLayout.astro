@@ -286,10 +286,17 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
   }
 
   .prose-content :global(img) {
-    width: 100%;
+    max-width: 60%;
+    display: block;
     height: auto;
     border-radius: 4px;
-    margin: 2rem 0;
+    margin: 3rem auto; /* Centered and with more breathing room */
+  }
+
+  @media (max-width: 768px) {
+    .prose-content :global(img) {
+      max-width: 100%;
+    }
   }
 
   /* Footer Links */
