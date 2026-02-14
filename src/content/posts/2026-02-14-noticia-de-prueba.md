@@ -6,6 +6,6 @@ description: El talento sudamericano necesita estructura, estrategia y un
   puerta de entrada más inteligente y rentable para la adaptación, valorización
   y posterior salto a las grandes ligas europeas.
 author: Cheito Díaz
-image: src/assets/uploads/37211959_1841239672637351_203850078559928320_o-1-180x180.jpg
+image: /uploads/37211959_1841239672637351_203850078559928320_o-1-180x180.jpg
 ---
 Cuerpo del artículo
