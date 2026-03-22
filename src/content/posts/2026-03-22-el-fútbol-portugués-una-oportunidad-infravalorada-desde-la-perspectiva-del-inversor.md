@@ -114,6 +114,8 @@ Aquí hay una oportunidad clara:
 
 Sin esto, cualquier estrategia comercial queda coja.
 
+![](/uploads/chatgpt-image-22-mar-2026-11_40_24.png)
+
 #### ***Casos donde sí hay base para crecer***
 
 Además de los ya mencionados, hay perfiles interesantes:
@@ -141,8 +143,6 @@ Desde un punto de vista deportivo, Nacional puede convertirse en un entorno idea
 Además, el hecho de operar en un entorno cerrado como Madeira permite reforzar el sentimiento de pertenencia, convirtiendo al club en un verdadero representante del territorio. Bien gestionado, este factor puede traducirse en mayor fidelización, mejor asistencia y una base más sólida sobre la que construir ingresos recurrentes.
 
 En este contexto, Nacional no compite por volumen, sino por eficiencia: un proyecto más pequeño, pero con mayor capacidad de control, optimización y crecimiento sostenible si se gestiona correctamente.
-
-
 
 Como conclusión, el fútbol portugués no necesita reinventarse. Necesita reequilibrarse.
 
