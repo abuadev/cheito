@@ -7,6 +7,7 @@ description: >
 
   European football is evolving towards multi-club models where talent is managed as a global asset. This structure creates more efficient and scalable investment opportunities.
 
+
   ES:
 
   El fútbol europeo evoluciona hacia modelos multiclub donde el talento se gestiona como un activo global. Esta estructura abre nuevas oportunidades de inversión más eficientes y escalables.
